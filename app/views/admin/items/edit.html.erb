@@ -1,2 +1,39 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<h3 class="d-inline-flex bg-light">商品編集</h3>
+   <% form_with model: Item do |f|%>
+
+    <div class="field mb-16 mt-5">
+       <%= f.label :商品画像 %>
+       <%= f.file_field :item_image, accept:"image/*" %>
+    </div>
+
+    <div>
+       <%= f.lebel: 商品名 %>
+       <%= f.text_field :name %>
+   </div>
+
+   <div class="field">
+      <%= f.label :商品説明 %>
+      <%= f.text_area :introduction　%>
+   </div>
+
+
+   <div class="field">
+      <%= f.label :ジャンル %>
+      <% f.selection :item_id,[[ 選択肢の表示名1, 実際に送信されるデータ1 ], [ 選択肢の表示名1, 実際に送信されるデータ2 ]] ,{prompt: "選ぶ"} %>
+    </div>
+
+   <div>
+   <%= f.label :税抜価格 %>
+
+   </div>
+
+   <div>
+    <%= f.label :販売ステータス %>
+    <%= form.radio_button :is_active, :販売中 %>
+  　<%= form.radio_button :is_active, :販売中止 %>
+   </div>
+
+   <%= f.submit '変更を保存', class: "btn btn-success" %>
+   <% end %>
+</div>
+</div>

@@ -1,2 +1,42 @@
- <%= render 'unlocks/admin' %>
+
  ーさんの会員情報編集
+<%= @customer.each do |customer| %>
+<table>
+    <tr>
+      <td>ID</td>
+      <td><%= item.name %></td>
+    </tr>
+
+     <tr>
+      <td>氏名</td>
+      <td><%= item.introduction %></td>
+    </tr>
+
+     <tr>
+      <td>フリガナ</td>
+      <td><%= item.genre_id %></td>
+    </tr>
+
+     <tr>
+      <td>郵便番号</td>
+      <td><%= item.price %></td>円
+    </tr>
+
+     <tr>
+      <td>住所</td>
+      <td><%= item.is_active %></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= item.genre_id %></td>
+    </tr>
+
+     <tr>
+      <td>メールアドレス</td>
+      <td><%= item.price %></td>円
+    </tr>
+
+     <tr>
+      <td>会員ステータス</td>
+      <td><%= item.is_active %></td>
+    </tr>

@@ -1,2 +1,11 @@
- <%= render 'unlocks/admin' %>
- ジャンル編集
+
+ <h3 class="d-inline-flex bg-light">ジャンル編集</h3>
+
+<%= form_with model: @genre, url: edit_admin_genre_path do |f| %>
+    <div class="form-group mt-5">
+      <%= f.label :name, "ジャンル名" %>
+      <%= f.text_field :name %>
+    </div>
+      <%= f.submit '変更を保存', class: "btn btn-success" %>
+ <% end %>
+

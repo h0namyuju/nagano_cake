@@ -1,23 +1,35 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'shipings/index'
+    get 'shipings/edit'
+  end
+  namespace :public do
+    get 'orders/new'
+    get 'orders/index'
+    get 'orders/show'
+  end
+  namespace :public do
+    get 'cart_items/index'
+  end
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   namespace :admin do
     get 'orders/show'
   end
   namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+    resources :customer, only:[:index, :show, :edit]
   end
   namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
+    resources :genres, only:[:index, :edit, :create, :update]
   end
   namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/create'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/update'
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
   end
   namespace :admin do
     get 'homes/top'
