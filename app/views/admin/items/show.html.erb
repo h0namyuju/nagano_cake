@@ -2,7 +2,7 @@
 
 <div class="row mt-5">
   <div class="col-5">
-    <%= image_tag @item.get_image(100,100), accept:"image/*", class: "img-thumbnail" %>
+    <%= image_tag @item.get_image(200,200), accept:"image/*", class: "img-thumbnail" %>
   </div>
 
   <div class="col-7">
@@ -29,7 +29,7 @@
 
      <tr>
       <td>販売ステータス</td>
-      <td><%= post.is_active == true ? "公開" : "非公開" %><%#= @item.select :is_active, [['販売中',true],['販売中止中',false]] %></td>
+      <td><%#= post.is_active == true ? "販売中" : "販売停止中" %><%#= @item.select :is_active, [['販売中',true],['販売中止中',false]] %></td>
       </tr>
 </table>
 <%= link_to'編集する', edit_admin_item_path(@item.id), class: "btn btn-success" %>
