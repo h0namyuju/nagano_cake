@@ -1,2 +1,25 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="row">
+  <div class="side-menu col-md-3">
+    <% @genre.each do |genre| %>
+      <ul class="border">
+        <h3>ジャンル検索</h3>
+        <li><%= genre.name %></li>
+      </ul>
+      <% end %>
+  </div>
+
+
+  <div class="image col-md-">
+    <%= image_tug @@item.get_image(100,100)%>
+  <div>
+
+  <div class="col-md-">
+    <h3><%= @item.name %></h3>
+    <p><%= @item.introduction %></p>
+    <div class="price"></div>
+    <>カートに入れる
+  </div>
+
+
+
+  </div>

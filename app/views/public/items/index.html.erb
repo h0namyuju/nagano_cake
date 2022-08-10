@@ -1,2 +1,23 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class="row">
+  <div class="side-menu col-md-3">
+    <% @genre.each do |genre| %>
+      <ul class="border">
+        <h3>ジャンル検索</h3>
+        <li><%= genre.name %></li>
+      </ul>
+      <% end %>
+  </div>
+
+  <div class="col-md-9">
+    <% @item.each do |item| %>
+  <div class="item-box">
+    <div class="image"><%= image_tug @@item.get_image(100,100)%></div>
+    <div class="item-name"><%= @item.name %></div>
+    <div class="price">￥<%= %></div>
+  </div>
+
+
+
+
+  </div>
+</div>
