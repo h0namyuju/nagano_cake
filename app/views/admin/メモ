@@ -1,3 +1,76 @@
+inndex１９削除
+コントローラー　destroy
+
+<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+
+<table>
+  <tr>
+     <td><%= f.label :first_name, "名前" %></td>
+     <td><%= f.text_field :first_name, class: "mr-10" %></td>
+     <td><%= f.text_field :last_name %></td>
+ </tr>
+
+ <tr>
+     <td><%= f.label :first_name, "フリガナ" %></td>
+     <td><%= f.text_field :first_name_kana, class: "mr-10" %></td>
+     <td><%= f.text_field :last_name_kana%></td>
+ </tr>
+
+ <tr>
+     <td><%= f.label :email, "メールアドレス" %></td>
+     <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+ </tr>
+
+ <tr>
+     <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+     <td><%= f.email_field :postal_code %></td>
+ </tr>
+
+ <tr>
+     <td><%= f.label :address, "住所" %></td>
+     <td><%= f.email_field :address %></td>
+ </tr>
+
+ <tr>
+     <td><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></td>
+     <td><%= f.email_field :telephone_number %></td>
+ </tr>
+
+ <tr>
+     <td><%= f.label :password, "パスワード(6文字以上)" %></td>
+     <td><% if @minimum_password_length %></td>
+ </tr>
+   <!-- <em>(<%#= @minimum_password_length %> characters minimum)</em>
+   -->
+ <tr>
+    <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+ </tr>
+
+ <tr>
+    <td><%= f.label :password_confirmation, "パスワード確認用" %></td>
+    <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+ </tr>
+
+ <tr>
+     <td></td>
+    <td><%= f.submit "新規登録", class : "btn btn-success" %></td>
+ </tr>
+
+</table>
+<% end %>
+
+<div class="d-inline-flex bg-light">すでに登録済みの方</div>
+<%= link_to 'こちら',new_customer_session_path %> からログインしてください。
+
+<%#= render "public/shared/links" %>
+
+
+
+
+
+
+
+
 _head
 <nav class="navbar navbar-expand-lg bg-info">
 

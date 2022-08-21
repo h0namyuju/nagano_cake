@@ -1,7 +1,7 @@
 <h3>注文履歴一覧</h3>
     <table class="table table-hover table-inverse">
 
-      <%# @order.each do |order| %>
+      <% @order.each do |order| %>
     <thead>
        <tr>
          <th>購入日時</th>
@@ -13,12 +13,12 @@
 
     <tbody>
       <tr>
-        <td><%#= order .%></td>
-        <td><%= @customer.first_name %></td>
-        <td><%#= order %></td>
-        <td><%#= order. %></td>
+        <td><%= link_to admin_orders_show_path, order.timestamps %></td>
+        <td><%= customer.first_name %></td>
+        <td><%= order.amount %></td>
+        <td><%= order.production_status %></td>
       </tr>
     </tbody>
-    <%# end %>
+    <% end %>
     </table>
     < pagenate >

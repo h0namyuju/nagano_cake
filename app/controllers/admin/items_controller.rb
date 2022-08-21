@@ -1,6 +1,7 @@
 class Admin::ItemsController < ApplicationController
   def index
     @item = Item.all
+    @genre = Genre.all
   end
 
   def new
@@ -24,8 +25,8 @@ class Admin::ItemsController < ApplicationController
 
   def update
      @item = Item.find(params[:id])
-     @item.update
-     redirect_to admin_item_path
+     @item.update(admin_item_params)
+     redirect_to admin_items_path
   end
 
   private

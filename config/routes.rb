@@ -16,46 +16,18 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes/top'
-  end
-  namespace :admin do
     get 'orders/show'
-  end
-  namespace :admin do
     resources :customers, only:[:index, :show, :edit]
-  end
-  namespace :admin do
     resources :genres, only:[:index, :edit, :create, :update]
-  end
-  namespace :admin do
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
   end
 
   namespace :public do
-    get 'shipings/index'
-    get 'shipings/edit'
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+    resources :orders, only:[:new, :index, :show]
+    resources :cart_items, only:[:index,  :create, :update, :destroy]
+    resources :customers, only:[:show, :edit]
+    resources :items, only:[:index, :show]
   end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-
-
-
-
-
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

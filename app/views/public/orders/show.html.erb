@@ -1,4 +1,4 @@
-<!-- ユーザーに確認してもらうための表示です -->
+<!-- ユーザーに確認してもらうための表示 -->
 <% @cart_items.each do |cart| %>
   <%= cart.item.name %> <!-- 商品名 -->
   <%= (cart.item.price).to_s(:delimited) %>　<!-- 金額 -->

@@ -1,23 +1,23 @@
 <div class="row">
-  <div class="side-menu col-md-3">
-    <% @genre.each do |genre| %>
-      <ul class="border">
-        <h3>ジャンル検索</h3>
-        <li><%= genre.name %></li>
-      </ul>
+  <div class="col-2">
+    <ul class="border">
+      <li>ジャンル検索</li>
+      <% @genres.each do |genre| %>
+      <li><%= genre.name %></li>
       <% end %>
+    </ul>
   </div>
 
-  <div class="col-md-9">
+
+<div>商品一覧</div>
     <% @item.each do |item| %>
-  <div class="item-box">
-    <div class="image"><%= image_tug @@item.get_image(100,100)%></div>
-    <div class="item-name"><%= @item.name %></div>
+  <div class="item-box col-3">
+    <%= link_to public_item_path(item.id) do %>
+    <div><%= image_tag item.get_image(120,100) %></div>
+    <div class="item-name"><%= item.name %></div>
     <div class="price">￥<%= %></div>
+    <% end %>
   </div>
+   <% end %>
 
-
-
-
-  </div>
 </div>

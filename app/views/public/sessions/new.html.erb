@@ -1,16 +1,17 @@
 <h2 class="d-inline-flex bg-light">ログイン</h2>
-<div class="d-inline-flex bg-light">会員の方はこちらからログイン</div>
+<div class="bg-light">会員の方はこちらからログイン</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<table>
+ <tr>
+    <td><%= f.label :email, "メールアドレス" %></td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+ </tr>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+ <tr>
+    <td><%= f.label :password, "パスワード" %></td>
+    <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+  </tr>
 
 <!--
   <%# if devise_mapping.rememberable? %>
@@ -20,15 +21,14 @@
     </div>
   <%# end %>
 -->
-
-  <div class="actions">
-    <%= f.submit "ログイン", class :"btn btn-primary" %>
-  </div>
+<tr>
+    <td></td>
+    <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+</tr>
+</table>
 <% end %>
 
-<div class="d-inline-flex bg-light">会員登録がお済みでない方</div>
-<%= link_to 'こちら',new_customer_registration_path %>　からログインしてください。
+<div class="d-inline-flex bg-light">会員登録がお済みでない方</div><br>
+<%= link_to 'こちら', new_customer_registration_path %> から新規登録してください。
 
-
-
-<%= render "public/shared/links" %>
+<%#= render "public/shared/links" %>

@@ -2,13 +2,13 @@
 
   <div class="d-inline-flex bg-light">ジャンル一覧・追加</div>
 
-<div class='row'>
+
   <%= form_with model: @genre, url: admin_genres_path do |f| %>
+<div class='row'>
+    <%= f.label :name, "ジャンル名", class: "col-2" %>
+    <%= f.text_field :name, class: "col-2", placeholder: "ジャンル名" %>
 
-    <%= f.label :name, "ジャンル名" %>
-    <%= f.text_field :name, class: "form-control" %>
-
-    <%= f.submit '新規登録', class:"btn btn-success" %>
+    <%= f.submit '新規登録', class: "btn btn-success col-2" %>
   <% end %>
 </div>
 
@@ -27,9 +27,10 @@
           <td><%= genre.name %></td>
           <td><%= link_to '編集する', edit_admin_genre_path(genre.id), class:"btn btn-sm btn-success" %></td>
         </tr>
+        </div>
         <% end %>
       </tbody>
   </table>
- </div>
+
 </div>
 </div>

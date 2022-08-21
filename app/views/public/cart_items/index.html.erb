@@ -1,2 +1,30 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+ <table class="table table-hover mt-5">
+    <thead>
+       <tr>
+         <th>商品名</th>
+         <th>単価(税込)</th>
+         <th>数量</th>
+         <th>小計</th>
+         <th></th>
+       <tr>
+    </thead>
+
+    <tbody>
+     <% @item.each do |item| %>
+      <tr>
+        <td><%= image_tag item.get_image(50,50) %><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.amount %>変更</td>
+        <td><%#= total %></td>
+        <td><%= lilnk_to '削除', public_cart_item_path, method: :delete ,class: 'btn btn-denger' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+
+<div class="row">
+  <div class="col-3">買い物を続ける</div>
+  <div class="col-5">合計金額</div>
+</div>
+
+情報入力に進む

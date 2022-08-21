@@ -2,9 +2,28 @@ top
 
 <div class="row">
   <div class="col-3">
-
+    <ul class="border">
+      <h4>ジャンル検索</h4>
+      <% @genre.each do |genre| %>
+      <li><%= genre.name %></li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="col-9">
+    <div class="image">
+      <div class="">ようこそ、ながのCAKEへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-9">
+    <h2>新着商品</h2>
   </div>
 </div>

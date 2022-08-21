@@ -1,2 +1,39 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="d-inline-flex bg-light">会員情報編集</div>
+<%= form_with model: @customer, url: edit_public_customer_path do |f| %>
+
+<table>
+    <tr>
+      <th><%= f.label :first_name, "氏名" %></th>
+      <td><%= f.text_field :first_name, class: "mr-10" %><%= f.text_field :last_name %></td>
+    </tr>
+
+     <tr>
+      <th><%= f.label :first_name, "フリガナ" %></th>
+      <td><%= f.text_field :first_name_kana, class: "mr-10 mr-10" %><%= f.text_field :last_name_kana%></td></td>
+    </tr>
+
+     <tr>
+      <th><%= f.label :postal_code, "郵便番号" %></th>
+      <td><%=  f.text_field :postal_code %></td>
+    </tr>
+
+     <tr>
+      <th><%= f.label :address, "住所" %></th>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :telephone_number, "電話番号" %></th>
+      <td><%= f.text_field :telephone_number %></td>
+    </tr>
+
+     <tr>
+      <th><%= f.label :email, "メールアドレス" %></th>
+      <td><%= f.text_field :email %></td>
+    </tr>
+  </table>
+
+<div class="row">
+    <%= f.submit '変更を保存', class: "btn btn-success col-5" %></p>
+    <%= f.submit '退会する', class: "btn btn-danger col-3" %>
+</div>
+<% end %>
