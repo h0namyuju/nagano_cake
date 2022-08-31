@@ -1,26 +1,34 @@
+ <%= form_with model: @order, url: public_order_comfirm_path, method: :post do |f| %>
+<P>支払方法</p>
 
-<!-- @order でラジオボタンを使って情報を送ります -->
-<%= form_with model: @order, url: check アクションにつながるパス, local: true do |f| %>
-<!-- customer テーブルに登録されている住所の場合です -->
-  <%= f.radio_button :address_number, 1 %> <!-- address_number と定義して1～3の番号を check に送ります -->
-  <%= f.label :address_number_1, "ご自身の住所" %>
-  <%= current_customer.customer_address %>
+  <%= f.radio_button :payment_type, Order.payment_types.key(0) %>
+  <%= f.label :payment_type, Order.payment_types_i18n[:credit_card] %><br>
+  <%= f.radio_button :payment_type, Order.payment_types.key(1) %>
+  <%= f.label :payment_type, Order.payment_types_i18n[:transfer]%>
 
-<!-- 登録されたaddressから選んでもらう場合です -->
-  <%= f.radio_button :address_number, 2 %>
-  <%= f.label :address_number_2, "登録先の住所" %>
-  <%= f.collection_select(:registered, current_customer.addresses.all, :id, :address %>
-<!-- registered として current_customer.address.all で取得した id を送ります。
-     ユーザーに表示して選択してもらうのは address です -->
-<!-- ドロップダウンを選択したら自動でラベルも選択されるようにしたかったのですが、現状ではわかりませんでした -->
+<!-- @order でラジオボタンを使って情報を送る -->
+<p>お届け先</p>
+<!-- customer テーブルに登録されている住所 -->
+  <%= f.radio_button :select_address, 1 %>
+  <%= f.label :select_address_1, "ご自身の住所" %><br>
+  <%= current_customer.address %><br>
+  <%= current_customer.full_name %><br>
+<!-- 登録されたaddressから選んでもらう -->
+  <%= f.radio_button :select_address, 2 %>
+  <%= f.label :select_address_2, "登録先住所から選択" %><br>
+  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %><br>
+ <!-- f.select :プロパティ名, options_from_collection_for_select(モデル, :フォームで送る値(メソッド), :セレクトボックスに表示する値(メソッド)) -->
 
-<!-- 新しい住所を追加する場合です -->
-  <%= f.radio_button :address_number, 3 %>
-  <%= f.label :address_number_3, "新しいお届け先" %>
+
+<!-- 新しい住所を追加 -->
+  <%= f.radio_button :select_address, 3 %>
+  <%= f.label :select_address, "新しいお届け先" %><br>
+  <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+  <%= f.text_field :postal_code %><br>
   <%= f.label :address, "住所" %>
-  <%= f.text_field :address %>
-  <%= f.label :address_name, "宛名" %>
-  <%= f.text_field :address_name %>
-<!-- 選んでもらったデータを送ります -->
-  <%= f.submit "確認画面へ進む" %>
+  <%= f.text_field :address %><br>
+  <%= f.label :name, "宛名" %>
+  <%= f.text_field :name %><br>
+
+  <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
 <% end %>

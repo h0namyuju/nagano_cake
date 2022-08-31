@@ -1,4 +1,4 @@
-
+<h3 class="d-inline-flex bg-light">配送先/一覧</h3>
 
 <div class='row'>
 <%= form_with model: @address, url: public_addresses_path do |f| %>
@@ -17,9 +17,11 @@
    <th><%= f.label :name,'宛名' %></th>
    <td><%= f.text_field :name %></td>
   </tr>
+
 </table>
 <%= f.submit '新規登録', class: 'btn btn-success' %>
 <% end %>
+
 </div>
 
 <div class='row'>

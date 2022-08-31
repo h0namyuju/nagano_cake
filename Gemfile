@@ -59,3 +59,4 @@ gem 'kaminari','~> 1.2.1'
 
 gem 'faker'
 gem 'pry-byebug', group: :development
+gem "enum_help"

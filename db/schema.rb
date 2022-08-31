@@ -118,7 +118,10 @@ ActiveRecord::Schema.define(version: 2022_07_27_062224) do
     t.string "address"
     t.string "postal_code"
     t.integer "total_amount"
-    t.integer "order_status"
+    t.integer "order_status", default: 0, null: false
+    t.integer "payment_type", default: 0
+    t.integer "shipping_fee"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

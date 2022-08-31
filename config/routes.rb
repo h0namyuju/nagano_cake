@@ -24,10 +24,16 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
-    resources :orders, only:[:new, :index, :show]
-    resources :cart_items, only:[:index,  :create, :update, :destroy]
+    resources :orders, only:[:new, :index, :show, :create]
+     post 'order/comfirm' => 'orders#comfirm'
+     get 'order/complate' => 'orders#complate'
+
     resources :customers, only:[:show, :edit]
     resources :items, only:[:index, :show]
+    delete 'cart_items', to: 'cart_items#destroy_all'
+
+    resources :cart_items, only:[:index, :create, :update, :destroy]
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
