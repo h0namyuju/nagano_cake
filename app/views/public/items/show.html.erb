@@ -18,7 +18,7 @@
   <div class="col-5">
     <h3><%= @item.name %></h3>
     <p><%= @item.introduction %></p>
-    <div class="price">円</div>
+    <div class="price"><%= @item.price %>円</div>
   <%= form_with model: @cart_item, url: public_cart_items_path do |f| %>
    <%= f.select :amount, *[1..10]%>
    <%= f.hidden_field :item_id, :value => @item.id %>
