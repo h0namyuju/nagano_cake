@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
-    resources :orders, only:[:new, :index, :show, :create]
+    resources :orders, only:[:new, :index, :show, :create, :destroy]
      post 'order/comfirm' => 'orders#comfirm'
      get 'order/complate' => 'orders#complate'
 

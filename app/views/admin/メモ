@@ -1,4 +1,21 @@
+<% @order.each do |order| %>
+  <%= order.item.name %> <!-- 商品名 -->
+  <%= (order.item.price).to_s(:delimited) %>　<!-- 金額 -->
+  <%= order.quantity %> <!-- 個数 -->
+  <%= (order.item.price*cart.quantity).to_s(:delimited) %> <!-- 小計 -->
+<% end %>
+<p>ご請求金額</p>
+<%#= @total.to_s(:delimited) %> <!-- お買い物の合計金額 -->
+<p>お届け先</p>
+<%= @order.address.id %>
 
+<!-- ユーザーには注文確定ボタンだけ表示します -->
+<%= form_with model: @order, url: create へのパス, local: true do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :total_price, value: @total %>
+
+<% end %>
 
 <%= f.select :amount, *[1..10]%> # 購入情報の入力画面で、宛先や住所などを入力するところです
 
